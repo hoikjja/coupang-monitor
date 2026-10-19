@@ -26,4 +26,3 @@ def check(url):
 for url in PRODUCTS:
     if check(url):
         send_push("Coupang Alert!", f"타판매자 붙음 감지!\n{url}")
-send_push("Coupang Alert!", "소리 테스트! 크게 울리면 성공!\nhttps://www.coupang.com")
