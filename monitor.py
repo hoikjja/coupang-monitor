@@ -27,3 +27,4 @@ def send_push(title, msg):
 for url in PRODUCTS:
     if check(url):
         send_push("🚨 쿠팡 타판매자 붙음!", f"붙음 감지!\n{url}")
+send_push("테스트 알림", "테스트입니다. 이게 오면 성공!")
