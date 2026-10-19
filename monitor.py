@@ -14,7 +14,7 @@ TOPIC = "gaintex-bori-20241019"
 
 def send_push(title, msg):
     # 제목은 영문만 (이모지 넣으면 에러)
-    requests.post(f"https://ntfy.sh/{TOPIC}", data=msg.encode('utf-8'), headers={"Title": title, "Priority": "high"})
+    requests.post(f"https://ntfy.sh/{TOPIC}", data=msg.encode('utf-8'), headers={"Title": title, "Priority": "5", "Tags": "warning,rotating_light"})
 
 def check(url):
     try:
