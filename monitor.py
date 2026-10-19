@@ -28,4 +28,4 @@ for url in PRODUCTS:
         send_push("🚨 쿠팡 타판매자 붙음!", f"붙음 감지!\n{url}")
 
 # 테스트 알림 - 이게 오면 성공
-send_push("✅ 테스트 성공!", "ntfy 연결 성공! 이제 중국셀러 붙을 때만 알림 옵니다")
+send_push("Test OK", "ntfy 연결 성공! 이제 중국셀러 붙을 때만 알림 옵니다")
