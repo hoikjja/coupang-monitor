@@ -1,4 +1,4 @@
-import requests, re
+import requests
 
 PRODUCTS = [
     "https://www.coupang.com/vp/products/5197241558?itemId=7234547652&vendorItemId=87051251942",
@@ -10,10 +10,11 @@ PRODUCTS = [
     "https://www.coupang.com/vp/products/5197241558?itemId=7234547653&vendorItemId=87051251927",
 ]
 
-NTFY_TOPIC = "gaintex-bori-20241019"
+TOPIC = "gaintex-bori-20241019"
 
 def send_push(title, msg):
-    requests.post(f"https://ntfy.sh/{NTFY_TOPIC}", data=msg.encode('utf-8'), headers={"Title": title})
+    # 제목은 영문만 (이모지 넣으면 에러)
+    requests.post(f"https://ntfy.sh/{TOPIC}", data=msg.encode('utf-8'), headers={"Title": title, "Priority": "high"})
 
 def check(url):
     try:
@@ -22,10 +23,6 @@ def check(url):
     except:
         return False
 
-# 실제 감시
 for url in PRODUCTS:
     if check(url):
-        send_push("🚨 쿠팡 타판매자 붙음!", f"붙음 감지!\n{url}")
-
-# 테스트 알림 - 이게 오면 성공
-send_push("Test OK", "ntfy 연결 성공! 이제 중국셀러 붙을 때만 알림 옵니다")
+        send_push("Coupang Alert!", f"타판매자 붙음 감지!\n{url}")
